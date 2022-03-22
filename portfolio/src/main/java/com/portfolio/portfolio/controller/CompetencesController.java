@@ -6,7 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +22,7 @@ import com.portfolio.portfolio.service.CompetencesService;
 
 @RestController
 @RequestMapping("/portofolio/competences")
+@CrossOrigin
 public class CompetencesController {
 	@Autowired
 	CompetencesService competencesService;
@@ -39,7 +40,7 @@ public class CompetencesController {
 		}
 		// creer
 		@PostMapping
-		public Competences save(@Valid @RequestBody CompetencesDto competencesDto)
+		public Competences save(@Valid  CompetencesDto competencesDto)
 				throws IllegalStateException, IOException {
 			return competencesService.save(competencesDto);
 		}
